@@ -20,7 +20,7 @@ services:
       - ./config:/config
       - /lib/modules:/lib/modules
     ports:
-      - 443:443/udp
-    sysctls:
-      - net.ipv4.conf.all.src_valid_mark=1
+      - 443:51820/udp
+    #sysctls:
+    #  - net.ipv4.conf.all.src_valid_mark=1
     restart: always
