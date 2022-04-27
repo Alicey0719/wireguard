@@ -1,0 +1,26 @@
+version: "3"
+services:
+  wireguard:
+    image: linuxserver/wireguard:1.0.20210914
+    container_name: wireguard
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
+    environment:
+      - PUID=1001
+      - PGID=113
+      - TZ=Asia/Tokyo
+      - SERVERURL=wg.alicey.dev
+      - SERVERPORT=443
+      - PEERS=20
+      - PEERDNS=auto
+      - INTERNAL_SUBNET=10.100.2.0
+      - ALLOWEDIPS=0.0.0.0/0
+    volumes:
+      - ./config:/config
+      - /lib/modules:/lib/modules
+    ports:
+      - 443:443/udp
+    sysctls:
+      - net.ipv4.conf.all.src_valid_mark=1
+    restart: always
