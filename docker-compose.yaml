@@ -10,7 +10,7 @@ services:
       - PUID=1001
       - PGID=113
       - TZ=Asia/Tokyo
-      - SERVERURL=wg.alicey.dev
+      - SERVERURL=example.alicey.dev
       - SERVERPORT=443
       - PEERS=20
       - PEERDNS=auto
